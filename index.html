@@ -1,18 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Vehicle Service History</title>
+
 <style>
-:root{font-family:Arial,sans-serif;color:#172033;background:#f4f6f8}body{margin:0}.hero{background:#172c4b;color:white;padding:34px 20px}.wrap{max-width:820px;margin:auto}.hero h1{margin:0;font-size:clamp(30px,6vw,52px)}.hero p{opacity:.85}.card{background:white;border-radius:14px;padding:20px;margin:18px 14px;box-shadow:0 3px 14px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.field{background:#f6f8fb;padding:12px;border-radius:9px}.field b{display:block;font-size:12px;text-transform:uppercase;color:#687386;margin-bottom:5px}.service{border-left:5px solid #172c4b;padding-left:15px;margin-top:18px}.service h3{margin-bottom:4px}.muted{color:#687386}.status{display:inline-block;padding:7px 11px;border-radius:20px;background:#e8f5eb;color:#236b36;font-weight:bold}.foot{text-align:center;color:#687386;padding:25px;font-size:13px}@media(max-width:500px){.card{margin:12px 8px;padding:16px}}
-</style></head>
-<body><header class="hero"><div class="wrap"><h1>Digital Vehicle Service History</h1><p>Read-only vehicle maintenance record</p></div></header>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f5f7;
+  color: #172033;
+}
+
+.header {
+  background: #17365d;
+  color: white;
+  padding: 30px 20px;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: auto;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+}
+
+.header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+main {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 12px;
+}
+
+.field {
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: #687386;
+  margin-bottom: 5px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #e5f5e9;
+  color: #20743a;
+  font-weight: bold;
+}
+
+.service {
+  border-left: 5px solid #17365d;
+  padding-left: 16px;
+  margin: 20px 0;
+}
+
+.service h3 {
+  margin: 0 0 5px;
+}
+
+.muted {
+  color: #6c7585;
+  margin-top: 0;
+}
+
+.notice {
+  font-size: 14px;
+  color: #596273;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #707887;
+  font-size: 13px;
+}
+
+@media (max-width:600px) {
+  .header h1 { font-size: 27px; }
+  main { padding: 12px; }
+  .card { padding: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <h1>Digital Vehicle Service History</h1>
+    <p>Verified vehicle maintenance record</p>
+  </div>
+</header>
+
 <main class="wrap">
-<section class="card"><h2>Vehicle Details</h2><div class="grid">
-<div class="field"><b>Registration</b>TEST 001</div><div class="field"><b>Make</b>Volkswagen</div><div class="field"><b>Model</b>Golf</div><div class="field"><b>Current mileage</b>125,000 miles</div></div><p><span class="status">Service status: Up to date</span></p></section>
-<section class="card"><h2>Service History</h2>
-<div class="service"><h3>Full Service</h3><div class="muted">15 September 2026 · 125,000 miles</div><p><b>Work carried out:</b> Engine oil and filter replaced. Vehicle inspected and service checks completed.</p><p><b>Parts fitted:</b> Oil filter, engine oil.</p><p><b>Next service due:</b> 135,000 miles or September 2027, whichever comes first.</p></div>
-<div class="service"><h3>Previous Service</h3><div class="muted">10 March 2026 · 118,500 miles</div><p><b>Work carried out:</b> Routine inspection and maintenance.</p><p><b>Parts fitted:</b> Sample record.</p></div>
+
+<section class="card">
+  <h2>Vehicle Details</h2>
+
+  <div class="grid">
+    <div class="field">
+      <span class="label">REGISTRATION</span>
+      TEST 001
+    </div>
+
+    <div class="field">
+      <span class="label">MAKE</span>
+      Volkswagen
+    </div>
+
+    <div class="field">
+      <span class="label">MODEL</span>
+      Golf
+    </div>
+
+    <div class="field">
+      <span class="label">CURRENT MILEAGE</span>
+      125,000 miles
+    </div>
+  </div>
+
+  <div class="status">✓ Service status: Up to date</div>
 </section>
-<section class="card"><h2>About this record</h2><p>This page contains vehicle service information only. Customer names, addresses, telephone numbers and other personal information are not displayed.</p></section>
-</main><div class="foot">Vehicle Service History · Test system</div></body></html>
+
+<section class="card">
+  <h2>Service History</h2>
+
+  <div class="service">
+    <h3>Full Service</h3>
+    <p class="muted">15 September 2026 · 125,000 miles</p>
+
+    <p><strong>Work carried out:</strong><br>
+    Engine oil and filter replaced. Vehicle inspected and service checks completed.</
