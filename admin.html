@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vehicle Service History - Admin</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #172033;
+}
+
+.header {
+  background: #17365d;
+  color: white;
+  padding: 25px 20px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 8px 0 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #17365d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.notice {
+  background: #fff3cd;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="container">
+    <h1>Vehicle Service History</h1>
+    <p>Workshop Admin</p>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="notice">
+<strong>ADMIN AREA</strong><br>
+For workshop use only.
+</div>
+
+<div class="card">
+
+<h2>Vehicle Details</h2>
+
+<label>Registration</label>
+<input type="text" placeholder="e.g. 241-D-12345">
+
+<label>Make</label>
+<input type="text" placeholder="e.g. Volkswagen">
+
+<label>Model</label>
+<input type="text" placeholder="e.g. Golf">
+
+<label>Current Mileage</label>
+<input type="number" placeholder="e.g. 125000">
+
+</div>
+
+<div class="card">
+
+<h2>Add Service Record</h2>
+
+<label>Service Date</label>
+<input type="date">
+
+<label>Mileage</label>
+<input type="number" placeholder="Mileage at service">
+
+<label>Service Type</label>
+<input type="text" placeholder="e.g. Full Service">
+
+<label>Work Carried Out</label>
+<textarea placeholder="Describe work carried out"></textarea>
+
+<label>Parts Fitted</label>
+<textarea placeholder="List parts fitted"></textarea>
+
+<label>Next Service Due</label>
+<input type="text" placeholder="e.g. 135,000 miles or September 2027">
+
+<button type="button">Save Service Record</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
