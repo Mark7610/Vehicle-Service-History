@@ -19,34 +19,34 @@ body {
 }
 
 .header {
-  background: #17365d;
+  background: #17305d;
   color: white;
-  padding: 25px 20px;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-.header p {
-  margin: 8px 0 0;
+  padding: 28px 20px;
 }
 
 .container {
-  max-width: 800px;
-  margin: 25px auto;
-  padding: 0 15px;
+  max-width: 850px;
+  margin: auto;
+  padding: 25px 18px;
+}
+
+.notice {
+  background: #fff4df;
+  border-left: 5px solid #e3a323;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
 }
 
 .card {
   background: white;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 22px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-h2 {
+h1, h2 {
   margin-top: 0;
 }
 
@@ -54,103 +54,140 @@ label {
   display: block;
   font-weight: bold;
   margin-top: 15px;
+  margin-bottom: 6px;
 }
 
-input, textarea {
+input,
+textarea,
+select {
   width: 100%;
   padding: 12px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
+  border: 1px solid #ccd2da;
+  border-radius: 6px;
   font-size: 16px;
 }
 
 textarea {
   min-height: 90px;
+  resize: vertical;
 }
 
 button {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 22px;
   padding: 14px;
-  background: #17365d;
+  background: #1769c2;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 7px;
   font-size: 17px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.notice {
-  background: #fff3cd;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+button:hover {
+  background: #12559e;
+}
+
+.small {
+  color: #667085;
+  font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<header class="header">
   <div class="container">
     <h1>Vehicle Service History</h1>
     <p>Workshop Admin</p>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main class="container">
 
 <div class="notice">
-<strong>ADMIN AREA</strong><br>
-For workshop use only.
+  <strong>ADMIN AREA</strong><br>
+  For workshop use only.
 </div>
 
-<div class="card">
+<section class="card">
 
 <h2>Vehicle Details</h2>
 
-<label>Registration</label>
-<input type="text" placeholder="e.g. 241-D-12345">
+<label for="registration">Registration</label>
+<input id="registration" type="text" placeholder="e.g. 241-D-12345">
 
-<label>Make</label>
-<input type="text" placeholder="e.g. Volkswagen">
+<label for="make">Make</label>
+<input id="make" type="text" placeholder="e.g. Volkswagen">
 
-<label>Model</label>
-<input type="text" placeholder="e.g. Golf">
+<label for="model">Model</label>
+<input id="model" type="text" placeholder="e.g. Golf">
 
-<label>Current Mileage</label>
-<input type="number" placeholder="e.g. 125000">
+<label for="mileage">Current Mileage</label>
+<input id="mileage" type="number" placeholder="e.g. 125000">
 
-</div>
+</section>
 
-<div class="card">
+<section class="card">
 
 <h2>Add Service Record</h2>
 
-<label>Service Date</label>
-<input type="date">
+<label for="serviceDate">Service Date</label>
+<input id="serviceDate" type="date">
 
-<label>Mileage</label>
-<input type="number" placeholder="Mileage at service">
+<label for="serviceMileage">Mileage</label>
+<input id="serviceMileage" type="number" placeholder="Mileage at service">
 
-<label>Service Type</label>
-<input type="text" placeholder="e.g. Full Service">
+<label for="serviceType">Service Type</label>
+<input id="serviceType" type="text" placeholder="e.g. Full Service">
 
-<label>Work Carried Out</label>
-<textarea placeholder="Describe work carried out"></textarea>
+<label for="work">Work Carried Out</label>
+<textarea id="work" placeholder="Describe work carried out"></textarea>
 
-<label>Parts Fitted</label>
-<textarea placeholder="List parts fitted"></textarea>
+<label for="parts">Parts Fitted</label>
+<textarea id="parts" placeholder="List parts fitted"></textarea>
 
-<label>Next Service Due</label>
-<input type="text" placeholder="e.g. 135,000 miles or September 2027">
+<label for="nextService">Next Service Due</label>
+<input id="nextService" type="text"
+placeholder="e.g. 135,000 miles or September 2027">
 
-<button type="button">Save Service Record</button>
+<button type="button" onclick="saveRecord()">
+Save Service Record
+</button>
 
-</div>
+<p class="small" id="message"></p>
 
-</div>
+</section>
+
+</main>
+
+<script>
+function saveRecord() {
+
+  const record = {
+    registration: document.getElementById("registration").value,
+    make: document.getElementById("make").value,
+    model: document.getElementById("model").value,
+    currentMileage: document.getElementById("mileage").value,
+    serviceDate: document.getElementById("serviceDate").value,
+    serviceMileage: document.getElementById("serviceMileage").value,
+    serviceType: document.getElementById("serviceType").value,
+    work: document.getElementById("work").value,
+    parts: document.getElementById("parts").value,
+    nextService: document.getElementById("nextService").value
+  };
+
+  localStorage.setItem(
+    "vehicleServiceRecord",
+    JSON.stringify(record)
+  );
+
+  document.getElementById("message").innerText =
+    "✓ Service record saved on this device.";
+}
+</script>
 
 </body>
 </html>
